@@ -1,0 +1,122 @@
+$color :#919191;
+$nav-background-color : #1d1d1d89;
+
+.header {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    font-family: Arimo, Arial, Helvetica, "Lucida Grande", sans-serif;
+    background-color: $nav-background-color;
+    position: fixed;
+    overflow: hidden;
+    border-bottom: 2px solid #2f2f2f15;
+    letter-spacing: -.01em;
+
+    .navbar {
+        display: flex;
+        padding: 10px 0;
+        width: 90%;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5em;
+
+            .slogan {
+                font-size: 1.1em;
+                color: $color;
+                font-weight: bold;
+            }
+
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            flex-wrap: wrap;
+            width: 50%;
+            font-size: .8em;
+
+            .search-bar {
+                display: flex;
+                padding: 5px 10px;
+                width: 250px;
+                height: 30px;
+                align-items: center;
+                gap: 5px;
+                border-radius: 50px;
+                border: 1px solid $color;
+
+                &:first-child {
+                    font-weight: bolder;
+                    color: $color;
+                }
+
+                input {
+                    padding: 5px 0;
+                    width: 90%;
+                    outline: none;
+                    background-color: transparent;
+                    color: $color;
+                    font-weight: 600;
+                    letter-spacing: .5px;
+                    word-spacing: 1px;
+                }
+
+                &:hover {
+                    cursor: text;
+                }
+            }
+
+            .nav-list {
+                display: flex;
+                gap: 15px;
+
+                & :nth-child(2) {
+                    color: yellowgreen !important;
+                }
+
+                .link {
+                    text-decoration: none;
+                    color: $color;
+                    font-weight: bold;
+                    transition: .3s color;
+
+                    &:hover {
+                        transition-delay: .3s;
+                        color: white;
+                    }
+                }
+
+            }
+
+            .login-register {
+                display: flex;
+                gap: 10px;
+                color: $color;
+
+                .vertical-bar {
+                    padding-top: 5px;
+                }
+
+                .link {
+                    font-weight: bolder;
+                    text-decoration: none;
+                    color: white;
+                    transition: .3s color;
+
+                    &:hover {
+                        transition-delay: .3s;
+                        color: $color;
+                    }
+                }
+
+            }
+        }
+    }
+}
