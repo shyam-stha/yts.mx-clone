@@ -21,6 +21,7 @@ const movieSlice = createSlice({
         state.movie = action.payload;
       })
       .addCase(fetchMovie.rejected, (state, action) => {
+        state.isLoading =false;
         state.error = action.payload;
       });
   },
