@@ -7,7 +7,6 @@ export const fetchMovie = createAsyncThunk(
     try {
       const response = await axios.get("/list_movies.json");
       const data = response.data;
-      console.log(data.data.movies);
       return data.data.movies;
     } catch (error) {
       throw thunkAPI.rejectWithValue(error);
@@ -21,7 +20,19 @@ export const fetchUpcommingMovie = createAsyncThunk(
     try {
       const response = await axios.get("/list_upcoming.json");
       const data = response.data;
-      console.log(data.data.movies);
+      return data.data.movies;
+    } catch (error) {
+      throw thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const fetchSuggestedMovie = createAsyncThunk(
+  "movie/fetchSuggestedMovie",
+  async (thunkAPI) => {
+    try {
+      const response = await axios.get("/movie_suggestions.json?movie_id=10");
+      const data = response.data;
       return data.data.movies;
     } catch (error) {
       throw thunkAPI.rejectWithValue(error);
