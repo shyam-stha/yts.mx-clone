@@ -1,19 +1,20 @@
+$color : #919191;
+
 .card-wrapper {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 400px;
+    height: 450px;
     width: 220px;
     display: flex;
     flex-direction: column;
 
     .movie-card {
-        height: 85%;
-        width: 101%;
+        height: 80%;
         background-size: cover;
         display: flex;
         align-items: center;
         background-repeat: no-repeat;
         justify-content: center;
-        border: 5px solid rgb(79, 32, 32);
+        border: 5px solid #fff;
         border-radius: 10px;
         position: relative;
         overflow: hidden;
@@ -90,7 +91,7 @@
             }
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.549);
+                background-color: rgba(0, 0, 0, 0.693);
                 opacity: 1;
                 border-radius: 5px;
                 cursor: pointer;
@@ -103,15 +104,44 @@
         }
     }
 
+    .title,
+    .year {
+        padding-top: 5px;
+    }
+
     .title {
-        color: rgb(26, 17, 17);
+        color: #fff;
+        font-size: .9em;
+
+        .language {
+            font-weight: bold;
+            color: $color;
+            padding-right: 2px; 
+            font-size: .8em;
+
+        }
     }
 
     .year {
-        color: rgba(0, 0, 0, 0.517);
+        color: $color;
         font-weight: 100;
-        font-size: .9em;
-        letter-spacing: 2px;
+        font-size: .85em;
+
+    }
+
+    .px-quality {
+        display: flex;
+        gap: 5px;
+
+        .quality {
+            color: $color;
+            background-color: rgba(0, 0, 0, 0.521);
+            font-size: .77em;
+            padding: 5px;
+            border-radius: 3px;
+            margin-top: 5px;
+            font-weight: bolder;
+        }
 
     }
 }
