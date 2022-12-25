@@ -1,18 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMovie } from "../../app/actions/fetchMovie";
 import MovieCard from "../movieCard/MovieCard";
-import "./movie-list.scss"
 import Loading from "../../components/ui/loading/Loading";
+import "./movie-list.scss"
 
-const MovieList = () => {
-    const { isLoading, error, movie } = useSelector((state) => state.movie);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchMovie());
-    }, []);
-
+const MovieList = ({isLoading, movie}) => {
     return (
         <div className="movie-list">
             <div className="list-container">
@@ -22,12 +12,13 @@ const MovieList = () => {
                             <MovieCard
                                 key={movieItem.id}
                                 movieItem={movieItem}
-                                quality={movieItem.torrents[0].quality}
+                                torrents={movieItem.torrents}
                                 background_image={movieItem.medium_cover_image}
                                 title={movieItem.title}
                                 year={movieItem.year}
                                 rating={movieItem.rating}
                                 genres={movieItem.genres}
+                                language={movieItem.language}
                             />
                         );
                     })
