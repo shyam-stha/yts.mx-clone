@@ -3,20 +3,24 @@ import "./movie-card.scss";
 
 const MovieCard = ({
   movieItem,
-  quality,
+  torrents,
   background_image,
   title,
   year,
   rating,
   genres,
+  language
 }) => {
+
+
+  const quality = torrents.map((tor, idx) => tor.quality)
   return (
     <div className="card-wrapper">
       <div
         className="movie-card"
         style={{ backgroundImage: `url(${background_image})` }}
       >
-        <div className="quality">{quality}</div>
+        <div className="quality">{quality[quality.length - 1]}</div>
         <div className="card-content">
           <img
             src="https://cdn-icons-png.flaticon.com/128/2107/2107957.png"
@@ -36,8 +40,13 @@ const MovieCard = ({
           <button className="view-dtl">View Details</button>
         </div>
       </div>
-      <h4 className="title">{title}</h4>
+      <h4 className="title"><span className="language">{language != "en" ? `[${language.toUpperCase()}]` : null}</span>{title}</h4>
       <span className="year">{year}</span>
+      <div className="px-quality">
+        {
+          quality.map((ql, idx) => <div className="quality" key={idx}>{ql}</div>)
+        }
+      </div>
     </div>
   );
 };
