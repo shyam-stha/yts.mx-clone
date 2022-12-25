@@ -3,16 +3,20 @@ $color :#919191;
 .home {
     display: flex;
     flex-direction: column;
-    width: 100vw;
     align-items: center;
-    gap: 20px;
+    background-color: #1d1d1d;
+    overflow: hidden;
 
     .top {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 30px;
-        padding-top: 50px;
+        width: 100vw;
+        padding: 100px 0;
+        background-image: url("https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28312.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
 
         .heading {
             font-size: 2.75em;
@@ -42,33 +46,91 @@ $color :#919191;
                 }
             }
         }
-    }
 
-    .link-section {
-        display: flex;
-        flex-direction: row;
-        width: 80vw;
-        justify-content: space-around;
-        margin-top: 50px;
+        .link-section {
+            display: flex;
+            flex-direction: row;
+            width: 80vw;
+            justify-content: space-around;
+            padding: 20px 0;
+            border-bottom: 1px solid #919191ae;
 
-        .link {
-            color: white;
-            text-decoration: none;
-            font-size: 1.3em;
-            font-weight: bolder;
+            .popular,
+            .featured {
+                color: yellowgreen;
+                display: flex;
+                align-items: center;
+                gap: 10px;
 
-            &:hover {
-                color: #2c52c3;
+                .icon {
+                    font-size: 1.2em;
+                }
             }
 
-            &:active {
-                color: #2c52c3;
+            .popular {
+                .icon {
+                    font-size: 1.7em;
+                }
             }
+
+            .link {
+                color: white;
+                text-decoration: none;
+                font-size: 1.3em;
+                font-weight: bolder;
+
+                &:hover {
+                    color: #2c52c3e8;
+                }
+
+                &:active {
+                    color: #2c52c377;
+                }
+            }
+
         }
+    }
+
+    .suggested-section {
+        background-color: #171717;
+        width: 100vw;
+        padding-bottom: 20px;
+        position: relative;
+
 
     }
 
-    // .suggested-section {
+    .upcomming-section {
+        width: 100vw;
+        position: relative;
 
-    // }
+        h2 {
+            padding-bottom: 5vw;
+            color: $color;
+            text-align: center;
+        }
+    }
+
+}
+
+.browse-link,
+.request-link {
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    color: $color;
+    font-size: .8em;
+    font-weight: bolder;
+
+    &:hover {
+        cursor: pointer;
+        color: white;
+        transition-delay: .3s;
+    }
+}
+
+.movie-category {
+    margin-left: 12vw;
+    color: #fff;
+    padding: 20px 20px;
 }
