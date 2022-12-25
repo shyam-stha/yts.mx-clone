@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchMovie } from "../../app/actions/fetchMovie";
+import { fetchMovie, fetchUpcommingMovie } from "../../app/actions/fetchMovie";
 
 const initialState = {
   isLoading: false,
   error: "",
   movie: [],
+  upCommingMovie: [],
 };
 
 const movieSlice = createSlice({
@@ -21,7 +22,18 @@ const movieSlice = createSlice({
         state.movie = action.payload;
       })
       .addCase(fetchMovie.rejected, (state, action) => {
-        state.isLoading =false;
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchUpcommingMovie.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchUpcommingMovie.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.upCommingMovie = action.payload;
+      })
+      .addCase(fetchUpcommingMovie.rejected, (state, action) => {
+        state.isLoading = false;
         state.error = action.payload;
       });
   },
