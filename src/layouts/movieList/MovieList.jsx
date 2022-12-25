@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMovie } from "../../app/actions/fetchMovie";
 import MovieCard from "../movieCard/MovieCard";
 import "./movie-list.scss"
+import Loading from "../../components/ui/loading/Loading";
 
 const MovieList = () => {
     const { isLoading, error, movie } = useSelector((state) => state.movie);
@@ -31,7 +32,7 @@ const MovieList = () => {
                         );
                     })
                 ) : (
-                    <h1>Loading ....</h1>
+                    <Loading />
                 )}
             </div>
         </div>
