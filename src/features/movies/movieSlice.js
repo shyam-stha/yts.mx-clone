@@ -3,6 +3,7 @@ import {
   fetchMovie,
   fetchUpcommingMovie,
   fetchSuggestedMovie,
+  fetchSelectedMovie,
 } from "../../app/actions/fetchMovie";
 
 const initialState = {
@@ -11,12 +12,18 @@ const initialState = {
   movie: [],
   upCommingMovie: [],
   suggestedMovie: [],
+  selectedMovieId: null,
+  selectedMovie: {},
 };
 
 const movieSlice = createSlice({
   name: "movie",
   initialState,
-  reducers: {},
+  reducers: {
+    movieSelected(state, action) {
+      state.selectedMovieId = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMovie.pending, (state, action) => {
@@ -51,8 +58,20 @@ const movieSlice = createSlice({
       .addCase(fetchSuggestedMovie.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchSelectedMovie.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchSelectedMovie.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.selectedMovie = action.payload;
+      })
+      .addCase(fetchSelectedMovie.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
 
+export const { movieSelected } = movieSlice.actions;
 export default movieSlice.reducer;
