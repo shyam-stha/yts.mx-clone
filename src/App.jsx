@@ -1,14 +1,18 @@
 import React from 'react'
-import MovieList from './layouts/movieList/MovieList'
-import MovieCard from './layouts/movieCard/MovieCard'
 import AppBar from './layouts/appbar/AppBar'
+import Home from './pages/home/Home'
+import { Routes, Route } from "react-router-dom";
+import MovieDetail from './pages/movieDetail/MovieDetail';
+
 
 const App = () => {
   return (
-    <div style={{backgroundColor : "black", height : "100vh"}}>
+    <div >
       <AppBar />
-      {/* <MovieList /> */}
-      {/* <MovieCard /> */}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='single-movie' element={<MovieDetail />} />
+      </Routes>
     </div>
   )
 }
