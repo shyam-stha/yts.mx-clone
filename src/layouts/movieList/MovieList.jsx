@@ -11,6 +11,7 @@ const MovieList = ({isLoading, movie}) => {
                         return (
                             <MovieCard
                                 key={movieItem.id}
+                                movie_id = {movieItem.id}
                                 movieItem={movieItem}
                                 torrents={movieItem.torrents}
                                 background_image={movieItem.medium_cover_image}
