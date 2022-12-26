@@ -1,8 +1,11 @@
 import React from "react";
+import { movieSelected } from "../../features/movies/movieSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./movie-card.scss";
 
 const MovieCard = ({
-  movieItem,
+  movie_id,
   torrents,
   background_image,
   title,
@@ -11,9 +14,17 @@ const MovieCard = ({
   genres,
   language
 }) => {
-
-
+  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const quality = torrents.map((tor, idx) => tor.quality)
+
+  const setSelectedMovie = (id) => {
+    dispatch(movieSelected(id))
+    navigate("single-movie")
+    
+  }
+  
   return (
     <div className="card-wrapper">
       <div
@@ -37,7 +48,7 @@ const MovieCard = ({
                 );
             })}
           </div>
-          <button className="view-dtl">View Details</button>
+          <button className="view-dtl" onClick={() => setSelectedMovie(movie_id)}>View Details</button>
         </div>
       </div>
       <h4 className="title"><span className="language">{language != "en" ? `[${language.toUpperCase()}]` : null}</span>{title}</h4>
