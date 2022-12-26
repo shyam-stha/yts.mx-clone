@@ -1,0 +1,11 @@
+.movie-poster {
+    .image {
+        border-radius: 5px;
+        border: 5px solid #fff;
+
+        &:hover {
+            cursor: pointer;
+            border: 5px solid #37ee16e2;
+        }
+    }
+}
